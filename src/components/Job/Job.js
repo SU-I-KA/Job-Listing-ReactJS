@@ -20,17 +20,19 @@ export default function Job({
         <div className={styles.jobDta}>
           <div className={styles.row}>
             <h4>{company}</h4>
-            {newlisted && <p>new</p>}
-            {featured && <p>featured</p>}
+            {newlisted && <p>new!</p>}
+            {featured && <p className={styles.featured}>featured</p>}
           </div>
           <div className={styles.row}>
-            <h2>{position}</h2>
+            <a href='#' className={styles.position}>
+              {position}
+            </a>
           </div>
           <div className={styles.row}>
             <ul>
               <li>{postedAt}</li>
-              <li>{contract}</li>
-              <li>{location}</li>
+              <li className={styles.dotted}>{contract}</li>
+              <li className={styles.dotted}>{location}</li>
             </ul>
           </div>
         </div>

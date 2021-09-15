@@ -24,7 +24,7 @@ Variables
   --radius: 12px;
   --radius-sm: 4px;
   --font-size: 15px;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --light-shadow: 0 15px 20px rgba(13, 113, 130, 15%);
   --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   --max-width: 1160px;
 }
@@ -72,7 +72,8 @@ header {
   width: 100vw;
   height: auto;
   padding-top: 122px;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+  min-height: 156px;
 }
 .headerBg {
   position: absolute;
@@ -81,4 +82,8 @@ header {
   background-color: #5ca5a5;
   width: 100%;
   height: 156px;
+}
+
+.job-list {
+  padding-top: 20px;
 }

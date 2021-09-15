@@ -11,7 +11,7 @@ export default function Filters({ searchTags, setSearchTags, removeFilter }) {
       <div className={styles.filters}>
         {searchTags?.map?.((tag, index) => {
           return (
-            <div className={styles.tagWrap}>
+            <div key={index} className={styles.tagWrap}>
               <div className={styles.tagName}>{tag}</div>
               <button
                 key={index}

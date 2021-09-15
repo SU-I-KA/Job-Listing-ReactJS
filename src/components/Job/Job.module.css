@@ -1,0 +1,120 @@
+/* Job Start */
+
+.job {
+  min-height: 152px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 32px 40px;
+  background-color: var(--clr-white);
+  margin-top: 32px;
+  border-radius: 5px;
+  justify-content: space-between;
+  gap: 8px;
+  box-shadow: var(--light-shadow);
+}
+.jobDetails {
+  display: flex;
+  flex-wrap: wrap;
+  height: 88px;
+  align-items: center;
+}
+.jobDetails img {
+  max-width: 88px;
+  max-height: 88px;
+  border-radius: 50%;
+}
+.row {
+  display: block;
+  margin-bottom: 4px;
+}
+.jobDta h4,
+.jobDta p,
+.jobDta ul li {
+  display: inline-block;
+}
+
+.jobDta {
+  padding-left: 24px;
+}
+
+.jobDta h4 {
+  padding-right: 15px;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.jobDta p {
+  padding: 8px;
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+  border-radius: var(--radius);
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 12px;
+  text-transform: uppercase;
+  margin-right: 15px;
+  max-height: 24px;
+}
+
+.featured {
+  background-color: var(--clr-black) !important;
+}
+
+.position {
+  color: var(--clr-black);
+  transition: var(--transition);
+  font-size: 18px;
+  font-weight: bold;
+}
+.position:hover {
+  color: var(--clr-primary);
+}
+
+.jobDta ul li {
+  color: #7c8f8f;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.dotted {
+  position: relative;
+  padding-left: 18px;
+  margin-left: 18px;
+}
+
+.jobDta .dotted:before {
+  content: '\A';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #7c8f8f;
+  display: inline-block;
+  position: absolute;
+  top: 38%;
+  left: 0;
+}
+
+/* categories start */
+
+.btnTag {
+  height: 32px;
+  padding: 8px;
+  background-color: var(--clr-primary-background);
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  margin-right: 16px;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--clr-primary);
+  text-transform: capitalize;
+  font-family: 'Spartan', sans-serif;
+  transition: var(--transition);
+}
+.btnTag:hover {
+  background-color: var(--clr-primary);
+  color: var(--clr-white);
+}

@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
-import JOBDATA from './services/data.json'
-import './App.css'
+import { useMediaQuery } from 'react-responsive'
+
 import Filters from './components/Filters/Filters'
 import Job from './components/Job/Job'
+
+import JOBDATA from './services/data.json'
+import './App.css'
 
 function App() {
   const [jobs, setJobs] = useState([])
@@ -41,12 +44,21 @@ function App() {
     setSearchTags(newTags)
   }
 
+  //call getJobs function
   useEffect(() => {
     getJobs()
   }, [])
 
+  // responsive media query for header's bg
+  const isMobile = useMediaQuery({ query: '(max-width: 376px)' })
+
+  //header background styling
   const headerBg = {
-    backgroundImage: `url(${'./images/bg-header-desktop.svg'})`,
+    backgroundImage: `url(${
+      isMobile
+        ? './images/bg-header-mobile.svg'
+        : './images/bg-header-desktop.svg'
+    })`,
   }
 
   return (

@@ -1,6 +1,7 @@
 /* Job Start */
 
 .job {
+  position: relative;
   min-height: 152px;
   display: flex;
   flex-wrap: wrap;
@@ -12,6 +13,7 @@
   justify-content: space-between;
   gap: 8px;
   box-shadow: var(--light-shadow);
+  transition: var(--transition);
 }
 .jobDetails {
   display: flex;
@@ -23,6 +25,7 @@
   max-width: 88px;
   max-height: 88px;
   border-radius: 50%;
+  transition: var(--transition);
 }
 .row {
   display: block;
@@ -36,6 +39,7 @@
 
 .jobDta {
   padding-left: 24px;
+  transition: var(--transition);
 }
 
 .jobDta h4 {
@@ -96,12 +100,23 @@
   left: 0;
 }
 
+.brdrLft {
+  position: absolute;
+  width: 5px;
+  background-color: var(--clr-primary);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
 /* categories start */
 
 .btnTag {
   height: 32px;
   padding: 8px;
-  background-color: var(--clr-primary-background);
+  background-color: var(--clr-primary-filter);
   border: 0;
   outline: none;
   cursor: pointer;
@@ -117,4 +132,73 @@
 .btnTag:hover {
   background-color: var(--clr-primary);
   color: var(--clr-white);
+}
+
+/* categories END */
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 940px) {
+  .jobDetails {
+    margin-bottom: 12px;
+  }
+  .categories {
+    flex: 0 0 100%;
+    border-top: 1px solid #b7c4c4;
+    padding-top: 24px;
+  }
+  .btnTag {
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and (max-width: 556px) {
+  .job {
+    margin-top: 40px;
+  }
+  .jobDetails {
+    position: relative !important;
+  }
+  .jobDetails img {
+    width: 48px;
+    height: 48px;
+    position: absolute !important;
+    top: -55px !important;
+  }
+  .jobDta {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .job {
+    padding: 32px 24px;
+  }
+  .position {
+    font-size: 15px;
+  }
+  .jobDetails {
+    margin-bottom: 0;
+  }
+  .jobDta h4 {
+    font-size: 13px;
+  }
+
+  .jobDta ul li {
+    font-size: 13px;
+  }
+  .dotted {
+    padding-left: 12px;
+    margin-left: 12px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .jobDta p {
+    font-size: 9px;
+    line-height: 11px;
+    margin-right: 8px;
+  }
+  .jobDta ul li {
+    font-size: 11px;
+  }
 }

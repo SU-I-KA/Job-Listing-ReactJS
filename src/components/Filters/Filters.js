@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Filters.module.css'
 
 export default function Filters({ searchTags, setSearchTags, removeFilter }) {
+  // remove filter button styling
   const btnBg = {
     backgroundImage: `url(${'./images/icon-remove.svg'})`,
     backgroundRepeat: `no-repeat`,

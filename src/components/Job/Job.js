@@ -15,8 +15,9 @@ export default function Job({
 }) {
   return (
     <div className={styles.job}>
+      {featured && <div className={styles.brdrLft}></div>}
       <div className={styles.jobDetails}>
-        <img src={logo} alt='company' />
+        <img src={logo} alt={company} title={company} />
         <div className={styles.jobDta}>
           <div className={styles.row}>
             <h4>{company}</h4>
@@ -24,7 +25,7 @@ export default function Job({
             {featured && <p className={styles.featured}>featured</p>}
           </div>
           <div className={styles.row}>
-            <a href='#' className={styles.position}>
+            <a href='/' className={styles.position}>
               {position}
             </a>
           </div>

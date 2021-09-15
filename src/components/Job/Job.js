@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Job.module.css'
 
 export default function Job({
   company,
@@ -13,19 +14,19 @@ export default function Job({
   addFilter,
 }) {
   return (
-    <div className='job'>
-      <div className='jobDetails'>
+    <div className={styles.job}>
+      <div className={styles.jobDetails}>
         <img src={logo} alt='company' />
-        <div className='jobDta'>
-          <div className='row'>
+        <div className={styles.jobDta}>
+          <div className={styles.row}>
             <h4>{company}</h4>
             {newlisted && <p>new</p>}
             {featured && <p>featured</p>}
           </div>
-          <div className='row'>
+          <div className={styles.row}>
             <h2>{position}</h2>
           </div>
-          <div className='row'>
+          <div className={styles.row}>
             <ul>
               <li>{postedAt}</li>
               <li>{contract}</li>
@@ -35,12 +36,12 @@ export default function Job({
         </div>
       </div>
 
-      <div className='categories'>
+      <div className={styles.categories}>
         {tags?.map((item, index) => {
           return (
             <button
               key={index}
-              className='btn-tag'
+              className={styles.btnTag}
               onClick={() => addFilter(item)}
             >
               {item}

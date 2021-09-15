@@ -45,9 +45,14 @@ function App() {
     getJobs()
   }, [])
 
+  const headerBg = {
+    backgroundImage: `url(${'./images/bg-header-desktop.svg'})`,
+  }
+
   return (
     <div className='App'>
       <header>
+        <div className='headerBg' style={headerBg}></div>
         <div className='container'>
           {searchTags.length > 0 && (
             <Filters

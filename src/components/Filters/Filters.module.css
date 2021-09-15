@@ -1,0 +1,73 @@
+/* Filters start */
+
+.filterSection {
+  min-height: 72px;
+  position: relative;
+  background: #fff;
+  padding: 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px;
+  gap: 15px;
+}
+.filters {
+  max-width: calc(75% - 25px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.tagWrap {
+  display: flex;
+  background-color: var(--clr-primary-background);
+  max-width: 124px;
+  height: 32px;
+  align-items: center;
+  padding-left: 10px;
+  border-radius: var(--radius-sm);
+  justify-content: space-between;
+}
+.tagName {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 24px;
+  padding-right: 5px;
+}
+.btnRemove {
+  width: 32px;
+  height: 32px;
+  background-color: #5ca5a5;
+  border: 0;
+  border-top-right-radius: var(--radius-sm);
+  border-bottom-right-radius: var(--radius-sm);
+  background-position: 48% 48%;
+  cursor: pointer;
+  transition: var(--transition);
+  outline: none;
+}
+.btnRemove:hover {
+  background-color: #2b3939;
+}
+.clear {
+  max-width: 20%;
+}
+.btnClear {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 24px;
+  color: #5ca5a5;
+  background: transparent;
+  border: 0;
+  outline: none;
+  text-transform: capitalize;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.btnClear:hover {
+  text-decoration: underline;
+}
+
+/* Filters End */
+
+/* Header End */

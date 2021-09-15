@@ -15,7 +15,7 @@
   transition: var(--transition);
 }
 .filters {
-  max-width: calc(75% - 25px);
+  max-width: calc(80% - 15px);
   display: flex;
   flex-wrap: wrap;
   gap: 15px;

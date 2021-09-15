@@ -22,6 +22,17 @@ function App() {
     })
   }
 
+  const addFilter = (tagItem) => {
+    // setSearchTags((oldTags) => {
+    //   return [...oldTags, tagItem]
+    // })
+    let newsearchtags = [...searchTags]
+    if (newsearchtags.indexOf(tagItem) === -1) {
+      newsearchtags.push(tagItem)
+    }
+    setSearchTags(newsearchtags)
+  }
+
   useEffect(() => {
     getJobs()
   }, [])
@@ -50,7 +61,11 @@ function App() {
                 <li>{job.location}</li>
               </ul>
               {job?.tags?.map((item, index) => {
-                return <p key={index}>{item}</p>
+                return (
+                  <p key={index} onClick={() => addFilter(item)}>
+                    {item}
+                  </p>
+                )
               })}
             </div>
           )

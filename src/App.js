@@ -4,6 +4,7 @@ import './App.css'
 
 function App() {
   const [jobs, setJobs] = useState([])
+  const [searchTags, setSearchTags] = useState([])
 
   // adding categories section to each job
   const getJobs = () => {
@@ -27,25 +28,33 @@ function App() {
 
   return (
     <div className='App'>
-      {jobs?.map?.((job) => {
-        return (
-          <div key={job.id} className='job'>
-            <img src={job.logo} alt='company' />
-            <p>{job.company}</p>
-            {job.new && <p>new</p>}
-            {job.featured && <p>featured</p>}
-            <h3>{job.position}</h3>
-            <ul>
-              <li>{job.postedAt}</li>
-              <li>{job.contract}</li>
-              <li>{job.location}</li>
-            </ul>
-            {job?.tags?.map((item, index) => {
-              return <p key={index}>{item}</p>
-            })}
-          </div>
-        )
-      })}
+      {jobs
+        ?.filter((item) => {
+          if (searchTags.length === 0) {
+            return item
+          } else {
+            return searchTags.every((tag) => item.tags.includes(tag))
+          }
+        })
+        ?.map?.((job) => {
+          return (
+            <div key={job.id} className='job'>
+              <img src={job.logo} alt='company' />
+              <p>{job.company}</p>
+              {job.new && <p>new</p>}
+              {job.featured && <p>featured</p>}
+              <h3>{job.position}</h3>
+              <ul>
+                <li>{job.postedAt}</li>
+                <li>{job.contract}</li>
+                <li>{job.location}</li>
+              </ul>
+              {job?.tags?.map((item, index) => {
+                return <p key={index}>{item}</p>
+              })}
+            </div>
+          )
+        })}
     </div>
   )
 }

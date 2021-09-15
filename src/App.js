@@ -33,12 +33,31 @@ function App() {
     setSearchTags(newsearchtags)
   }
 
+  const removeFilter = (tag) => {
+    const newTags = searchTags.filter((item) => {
+      return item !== tag
+    })
+    setSearchTags(newTags)
+  }
+
   useEffect(() => {
     getJobs()
   }, [])
 
   return (
     <div className='App'>
+      {searchTags.length > 0 && (
+        <div className='tagsection'>
+          {searchTags.map((tag, index) => {
+            return (
+              <button key={index} onClick={() => removeFilter(tag)}>
+                {tag}
+              </button>
+            )
+          })}
+          <button onClick={() => setSearchTags([])}>clear</button>
+        </div>
+      )}
       {jobs
         ?.filter((item) => {
           if (searchTags.length === 0) {

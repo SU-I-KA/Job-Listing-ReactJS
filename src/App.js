@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import JOBDATA from './services/data.json'
 import './App.css'
+import Filters from './components/Filters/Filters'
+import Job from './components/Job/Job'
 
 function App() {
   const [jobs, setJobs] = useState([])
@@ -22,10 +24,8 @@ function App() {
     })
   }
 
+  // add tag filter
   const addFilter = (tagItem) => {
-    // setSearchTags((oldTags) => {
-    //   return [...oldTags, tagItem]
-    // })
     let newsearchtags = [...searchTags]
     if (newsearchtags.indexOf(tagItem) === -1) {
       newsearchtags.push(tagItem)
@@ -33,6 +33,7 @@ function App() {
     setSearchTags(newsearchtags)
   }
 
+  // remove tag filter
   const removeFilter = (tag) => {
     const newTags = searchTags.filter((item) => {
       return item !== tag
@@ -46,49 +47,33 @@ function App() {
 
   return (
     <div className='App'>
-      {searchTags.length > 0 && (
-        <div className='tagsection'>
-          {searchTags.map((tag, index) => {
-            return (
-              <button key={index} onClick={() => removeFilter(tag)}>
-                {tag}
-              </button>
-            )
-          })}
-          <button onClick={() => setSearchTags([])}>clear</button>
+      <header>
+        <div className='container'>
+          {searchTags.length > 0 && (
+            <Filters
+              searchTags={searchTags}
+              setSearchTags={setSearchTags}
+              removeFilter={removeFilter}
+            />
+          )}
         </div>
-      )}
-      {jobs
-        ?.filter((item) => {
-          if (searchTags.length === 0) {
-            return item
-          } else {
-            return searchTags.every((tag) => item.tags.includes(tag))
-          }
-        })
-        ?.map?.((job) => {
-          return (
-            <div key={job.id} className='job'>
-              <img src={job.logo} alt='company' />
-              <p>{job.company}</p>
-              {job.new && <p>new</p>}
-              {job.featured && <p>featured</p>}
-              <h3>{job.position}</h3>
-              <ul>
-                <li>{job.postedAt}</li>
-                <li>{job.contract}</li>
-                <li>{job.location}</li>
-              </ul>
-              {job?.tags?.map((item, index) => {
-                return (
-                  <p key={index} onClick={() => addFilter(item)}>
-                    {item}
-                  </p>
-                )
-              })}
-            </div>
-          )
-        })}
+      </header>
+
+      <div className='job-list'>
+        <div className='container'>
+          {jobs
+            ?.filter((item) => {
+              if (searchTags.length === 0) {
+                return item
+              } else {
+                return searchTags.every((tag) => item.tags.includes(tag))
+              }
+            })
+            ?.map?.((job) => {
+              return <Job key={job.id} {...job} addFilter={addFilter} />
+            })}
+        </div>
+      </div>
     </div>
   )
 }
